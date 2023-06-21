@@ -65,7 +65,7 @@ Optional Arguments:
 airflow command error: the following arguments are required: GROUP_OR_COMMAND, see help above.
 ```
 
-Install bash for easy tutorial follow:
+Install bash for **easy tutorial** follow:
 ```
 > wsl --install -d Ubuntu 
 ```
@@ -94,38 +94,39 @@ This message is shown once a day. To disable it please create the
 /home/shubham/.hushlogin file.
 shubham@Verma:~$
 ```
-activate bash
+Activate bash
 ```
 D:\My Computer (Shubham)\AI\Apache_Airflow>bash
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
 shubham@Verma:/mnt/d/My Computer (Shubham)/AI/Apache_Airflow$ 
-$ source py_airflow_env/Scripts/activate
 ```
 CONTINUE...
 ```bash
-$ export AIRFLOW_HOME=.
+$ source py_airflow_env/Scripts/activate
 $ sudo apt update
 $ sudo apt install python3-venv python3-pip
 $ pip install apache-airflow
 $ pip install 'apache-airflow==2.6.2' --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.6.2/constraints-3.8.txt"
+$ export AIRFLOW_HOME=.
 $ export AIRFLOW_HOME=~/airflow
 $ airflow db init
 $ source py_airflow_env/Scripts/activate
 ```
-Cut-paste:
+Cut-paste (Airflow folder from ubuntu to windows directory):
 ```bash
 $ nautilus /home/shubham/airflow/
 $ cp -r /home/shubham/airflow/ /mnt/d/  (cp -r /path/to/directory /path/to/location/new-name)
 ```
 Back to Airflow(Run):
 ```
-airflow webserver -p 8080
+$ 
+$ airflow webserver
 $ airflow standalone
 ```
 
-
+Just for note (Not important)
 ```
 sudo mkdir download
 sudo mkdir desktop
@@ -140,3 +141,19 @@ sudo apt-get install chromium-browser
 ### Use: `http://localhost:8080/`
 
 to run your airflow if it shows server not able to connect in `http://0.0.0.0:8080/`
+
+Create user: 
+`$ airflow user create`
+airflow users create -e 20shubh01@gmail.com -f Shubham -l Verma -r Admin -u ShubhamVerma
+
+### Run Airflow
+`$ airflow webserver` at
+http://localhost:8080/
+
+Goto next terminal (Bash) to run scheduler (Move all airflow folder to out)
+```bash
+$ source py_airflow_env/Scripts/activate
+$ export AIRFLOW_HOME=.
+$ airflow scheduler
+```
+Now starting buliding you **Project**
